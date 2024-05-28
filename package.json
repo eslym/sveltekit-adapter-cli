@@ -1,0 +1,31 @@
+{
+  "name": "@eslym/sveltekit-adapter-cli",
+  "version": "1.0.0",
+  "type": "module",
+  "files": [
+    "dist/**/*"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "devDependencies": {
+    "@sveltejs/kit": "^2.5.10",
+    "@types/bun": "latest",
+    "prettier": "^3.2.5",
+    "tiny-glob": "^0.2.9",
+    "husky": "^8.0.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^25.0.8",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "cac": "^6.7.14",
+    "rollup": "^4.18.0"
+  }
+}
