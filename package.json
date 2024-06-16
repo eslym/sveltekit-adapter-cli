@@ -1,6 +1,6 @@
 {
   "name": "@eslym/sveltekit-adapter-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "files": [
     "dist/**/*"
@@ -12,14 +12,14 @@
     }
   },
   "devDependencies": {
-    "@sveltejs/kit": "^2.5.10",
+    "@sveltejs/kit": "^2.5.16",
     "@types/bun": "latest",
-    "prettier": "^3.2.5",
+    "prettier": "^3.3.2",
     "tiny-glob": "^0.2.9",
-    "husky": "^8.0.0"
+    "husky": "^8.0.3"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.4.5"
   },
   "dependencies": {
     "@rollup/plugin-commonjs": "^25.0.8",

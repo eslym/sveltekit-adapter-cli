@@ -1,9 +1,15 @@
+import { Server } from 'SERVER';
+import { manifest } from 'MANIFEST';
 import cac from 'cac';
-import { SYM_BASE_PATH } from './symbols';
+import { SYM_BASE_PATH, SYM_SERVER } from './symbols';
 import { handle } from './handle';
 import { get_hooks } from 'SERVER';
 
+const server = new Server(manifest);
+await server.init({ env: Bun.env as any });
+
 (globalThis as any)[SYM_BASE_PATH] = import.meta.dirname;
+(globalThis as any)[SYM_SERVER] = server;
 
 const hooks = await get_hooks();
 

@@ -1,10 +1,10 @@
-import { Server } from 'SERVER';
-import { manifest } from 'MANIFEST';
+import type { Server } from 'SERVER';
 import { PassThrough, Readable } from 'stream';
-import { SYM_BASE_PATH, SYM_VERCELCONTEXT } from './symbols';
+import { SYM_BASE_PATH, SYM_SERVER, SYM_VERCELCONTEXT } from './symbols';
 import { statSync, existsSync, type Stats } from 'fs';
 import { normalize } from 'path';
 import { Readline } from './readline';
+import { manifest } from 'MANIFEST';
 
 const env = Bun.env;
 
@@ -101,7 +101,7 @@ async function serve(request: Request, options: HandleOptions): Promise<Response
             : undefined,
         () => serveStatic(request, options, (globalThis as any)[SYM_BASE_PATH] + '/prerendered', false),
         async () => {
-            const server = new Server(manifest);
+            const server = (globalThis as any)[SYM_SERVER] as Server;
             await server.init({ env: Bun.env as any });
             return server.respond(request, {
                 getClientAddress() {
